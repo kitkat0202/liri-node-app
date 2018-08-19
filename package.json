@@ -1,0 +1,27 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "a _Language_ Interpretation and Recognition Interface",
+  "main": "keys.js",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.75.0",
+    "tumblr": "^0.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitkat0202/liri-node-app.git"
+  },
+  "keywords": [],
+  "author": "Katherine He",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitkat0202/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/kitkat0202/liri-node-app#readme"
+}
