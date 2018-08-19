@@ -22,7 +22,6 @@ let getTumblr = () => {
             console.log(`--- Tumblr Quotes from sakurasaki21 ---`)
             console.log("--------------------------------------------")
             res.posts.forEach((post, i) => {
-                //console.log(JSON.stringify(post, null, 2))
                 console.log(`\n -- RESULT #${i+1} --`)
                 console.log(`${post.text}`)
                 console.log(`  -- Time Stamp: ${post.date} --\n`)

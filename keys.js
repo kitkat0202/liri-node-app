@@ -1,4 +1,4 @@
-// console.log('this is loaded');
+console.log('this is loaded')
 
 exports.tumblr = {
   consumer_key: process.env.TUMBLR_CONSUMER_KEY,
