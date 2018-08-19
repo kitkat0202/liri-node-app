@@ -16,18 +16,17 @@ var client = new tumblr.Blog('sakurasaki21.tumblr.com', keys.tumblr)
 let getTumblr = () => {
     client.quote({limit: 20}, (err, res) => {
         if (err) {
-          throw new Error(err);
+          throw new Error(err)
         } else {
-            console.log("--------------------------------------------")
-            console.log(`--- Tumblr Quotes from sakurasaki21 ---`)
-            console.log("--------------------------------------------")
+            log("--------------------------------------------\n" +
+            `--- Tumblr Quotes from sakurasaki21 ---\n` +
+            "--------------------------------------------\n\n")
             res.posts.forEach((post, i) => {
-                console.log(`\n -- RESULT #${i+1} --`)
-                console.log(`${post.text}`)
-                console.log(`  -- Time Stamp: ${post.date} --\n`)
-                
+                log(` -- RESULT #${i+1} --\n` +
+                `${post.text}\n` +
+                `  -- Time Stamp: ${post.date} --\n\n`)
             })
-            console.log("--------------------------------------------\n")
+            log("--------------------------------------------\n\n")
         }
       })
 
@@ -39,22 +38,22 @@ let getSpotify = (song = "The Sign") => {
         if (err) {
             return console.log('Error occurred: ' + err)
         } else {
-            console.log("--------------------------------------------")
-            console.log(`--- Song Search Results for: ${song} ---`)
-            console.log("--------------------------------------------")
+            log("--------------------------------------------\n" +
+            `--- Song Search Results for: ${song} ---\n` +
+            "--------------------------------------------\n\n")
             data.tracks.items.forEach((song, i) => {
                 if (i < 5) {
                     var thisSong = data.tracks.items[i]
                     if (thisSong != undefined) {
-                        console.log(`\nResult #${i+1}`)
-                        console.log(`  Artist: ${thisSong.artists[0].name}`)
-                        console.log(`  Song: ${thisSong.name}`)
-                        console.log(`  Preview Url: ${thisSong.preview_url}`)
-                        console.log(`  Album: ${thisSong.album.name}\n`)
+                        log(`Result #${i+1}\n` +
+                        `  Artist: ${thisSong.artists[0].name}\n` +
+                        `  Song: ${thisSong.name}\n` +
+                        `  Preview Url: ${thisSong.preview_url}\n` +
+                        `  Album: ${thisSong.album.name}\n\n`)
                     }
                 }
             })
-            console.log("--------------------------------------------\n")
+            log("--------------------------------------------\n\n")
         }
         
     })
@@ -66,18 +65,18 @@ let getOMDB = (movie = "Mr. Nobody") => {
 
         if (!err && res.statusCode === 200) {
             let thisBody = JSON.parse(body)
-            console.log("--------------------------------------------")
-            console.log(`--- Movie Search Results for: ${movie} ---`)
-            console.log("--------------------------------------------")
-            console.log(`\n  Title: ${thisBody.Title}`)
-            console.log(`  Year: ${thisBody.Year}`)
-            console.log(`  IMDB Rating: ${thisBody.imdbRating}`)
-            console.log(`  Rotten Tomatoes Rating: ${thisBody.tomatoRating}`)
-            console.log(`  Country: ${thisBody.Country}`)
-            console.log(`  Language: ${thisBody.Language}`)
-            console.log(`  Plot: ${thisBody.Plot}`)
-            console.log(`  Actors: ${thisBody.Actors}\n`)
-            console.log("--------------------------------------------\n")
+           log("--------------------------------------------\n" +
+           `--- Movie Search Results for: ${movie} ---\n` +
+           "--------------------------------------------\n\n" +
+           `  Title: ${thisBody.Title}\n` +
+           `  Year: ${thisBody.Year}\n` +
+           `  IMDB Rating: ${thisBody.imdbRating}\n` +
+           `  Rotten Tomatoes Rating: ${thisBody.tomatoRating}\n` +
+           `  Country: ${thisBody.Country}\n` +
+           `  Language: ${thisBody.Language}\n` +
+           `  Plot: ${thisBody.Plot}\n` +
+           `  Actors: ${thisBody.Actors}\n\n` +
+           "--------------------------------------------\n\n")
         }
       })
 }
@@ -93,6 +92,16 @@ let doWhatISays = () => {
         }
     })
 }
+
+// log.txt LIRI
+function log(log) {
+    console.log(log)
+    fs.appendFile("log.txt", log, (error) => {
+      if(error) {
+        return console.log('Error occurred: ' + err)
+      }
+    })
+  }
 
 
 // LIRI Function
@@ -111,7 +120,8 @@ let liri = (apiChoice, userInput) => {
             doWhatISays()
             break
         default:
-            console.log(`Sorry Please Try Again...`)
+            log(`Sorry - ${apiChoice} - not found...` +
+            "--------------------------------------------\n\n")
     }
 }
 
