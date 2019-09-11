@@ -8,7 +8,7 @@ const fs = require('fs')
 
 
 var spotify = new Spotify(keys.spotify)
-var client = new tumblr.Blog('sakurasaki21.tumblr.com', keys.tumblr)
+var client = new tumblr.Blog(`${keys.tumblrUser}.tumblr.com`, keys.tumblr)
 
 
 
@@ -19,7 +19,7 @@ let getTumblr = () => {
           throw new Error(err)
         } else {
             log("--------------------------------------------\n" +
-            `--- Tumblr Quotes from sakurasaki21 ---\n` +
+            `--- Tumblr Quotes from ${keys.tumblrUser} ---\n` +
             "--------------------------------------------\n\n")
             res.posts.forEach((post, i) => {
                 log(` -- RESULT #${i+1} --\n` +

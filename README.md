@@ -1,9 +1,16 @@
 # liri-node-app
-a _Language_ Interpretation and Recognition Interface
+A _Language Interpretation and Recognition Interface_
 
+<br/>
 
-### How to Use
-Before you start anything remember to install the node_module packages by running: `npm i` or `npm install`
+### __How to Setup__
+1. Before you start anything remember to install the node_module packages by running: `npm i` or `npm install`
+
+2. Next make sure your API Keys are set up. If you do not know how please go to the './keys.js' file and there are comments instructions provided on how to accomplish this
+
+<br/>
+
+### __How to Use__
 
 In the command terminal use the command:
 `node liri.js  <your command>`
@@ -18,6 +25,8 @@ __Command List:__
     * `movie-this`          (allows 2nd parameter of song name or defalts to "Mr. Nobody")
 
     * `do-what-it-says`
+
+
 
 <br/><br/><br/>
 # Finished Product:
