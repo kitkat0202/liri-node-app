@@ -3,7 +3,9 @@ a _Language_ Interpretation and Recognition Interface
 
 
 ### How to Use
-In the command terminal use the command
+Before you start anything remember to install the node_module packages by running: `npm i` or `npm install`
+
+In the command terminal use the command:
 `node liri.js  <your command>`
 
 
